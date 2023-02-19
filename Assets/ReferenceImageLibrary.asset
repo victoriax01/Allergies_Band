@@ -18,12 +18,12 @@ MonoBehaviour:
     m_Storage: []
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5508351118385440441
-      m_GuidHigh: 14154805624377288584
+      m_GuidLow: 4977592569294335492
+      m_GuidHigh: 1192040804277426847
     m_SerializedTextureGuid:
-      m_GuidLow: 2095301160220549481
-      m_GuidHigh: 12661384774935165065
-    m_Size: {x: 0.1, y: 0.095796846}
+      m_GuidLow: 11188188555335396402
+      m_GuidHigh: 15441261262501941739
+    m_Size: {x: 0.05296709, y: 0.085}
     m_SpecifySize: 1
     m_Name: coaster
     m_Texture: {fileID: 0}

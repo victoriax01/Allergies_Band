@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 22732922}
   - component: {fileID: 22732921}
   - component: {fileID: 22732925}
-  - component: {fileID: 22732924}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -237,19 +236,6 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
---- !u!114 &22732924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22732919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9181774a767779f43907c243fe18cb5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CameraManager: {fileID: 0}
 --- !u!114 &22732925
 MonoBehaviour:
   m_ObjectHideFlags: 0
