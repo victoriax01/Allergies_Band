@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class CanvasController : MonoBehaviour
 {
-    public GameObject panel;
+    /* 
+    Code to control elements in the UI and is attached onto the Canvas object
+    */
+    public GameObject panel; // allergies list screen
+
+    // arrows on the UI to guide the user to swipe left and right
     public GameObject lArrow;
     public GameObject rArrow;
+
+    // boolean to keep track of what screen should be shown (allergies list or camera view)
     private bool isShowing = false;
-    // Start is called before the first frame update
+
     void Start()
     {
+        // On application start, the left and right arrows appear on the screen
         panel.SetActive(isShowing);
         lArrow.SetActive(!isShowing);
         rArrow.SetActive(!isShowing);
@@ -18,14 +26,10 @@ public class CanvasController : MonoBehaviour
 
     public void togglePanel()
     {
+        // Called when the 'Toggle View' button is pressed, hides the arros and shows the allergies list panel
         isShowing = !isShowing;
         panel.SetActive(isShowing);
         lArrow.SetActive(!isShowing);
         rArrow.SetActive(!isShowing);
     }
-    // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
 }

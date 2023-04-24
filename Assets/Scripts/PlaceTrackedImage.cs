@@ -6,8 +6,13 @@ using UnityEngine.XR.ARSubsystems;
 
 public class PlaceTrackedImage : MonoBehaviour
 {
+    /*
+    Script that is attached to the AR Session Origin and used to place an AR object on the detected and tracked image that is predefined in the Reference Image Library
+
+    Much of this code is similar to the tutorial code found here: https://gist.github.com/alastaira/92d790ed09330ea7a45e7c3a2a4d26e1
+    */
     private ARTrackedImageManager _trackedImagesManager;
-    public GameObject[] ArPrefabs;
+    public GameObject[] ArPrefabs; // the AR prefab to place
 
     private readonly Dictionary<string, GameObject> _instantiatedPrefabs = new Dictionary<string, GameObject>();
 
@@ -51,11 +56,5 @@ public class PlaceTrackedImage : MonoBehaviour
     public void UpdatePrefab(GameObject newObj)
     {
         ArPrefabs[0] = newObj;
-    }
-
-
-    void Update()
-    {
-        
     }
 }

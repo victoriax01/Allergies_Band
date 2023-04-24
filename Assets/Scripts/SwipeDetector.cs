@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SwipeDetector : MonoBehaviour
 {
+    /*
+    Legacy script used to switch between showing different allergies
+    */
     public static bool swipeDetected = false;
     public static int swipeDir = 0;
     
@@ -11,13 +14,7 @@ public class SwipeDetector : MonoBehaviour
     private Touch touch;
 
     private Vector2 beginTouchPos, endTouchPos;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.touchCount > 0)
@@ -32,7 +29,7 @@ public class SwipeDetector : MonoBehaviour
             else if (touch.phase == TouchPhase.Ended)
             {
                 endTouchPos = touch.position;
-                // fingerDownPosition.x - fingerUpPosition.x > 0 ? SwipeDirection.Right : SwipeDirection.Left;
+
                 if (beginTouchPos.x > endTouchPos.x)
                 {
                     SwipeDetector.swipeDetected = true;

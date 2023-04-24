@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class ChangeShowing : MonoBehaviour
 {
-    public float timer, interval = 2f;
-    private int objIndex = 0;
-    // private bool temp = false;
+    /*
+    Script that is attached to the prefab which is kept in the list "ArPrefabs" in PlaceTrackedImage.cs
+
+    Contains methods to switch to the next and previous prefab
+    */
+    private int objIndex = 0; // keeps track of which prefab is currently showing
 
     List<GameObject> childObjects = new List<GameObject>();
-    private void Awake()
-    {
-        // SwipeDetectorA.OnSwipe += SwipeDetector_OnSwipe;
-    }
     
-    // Start is called before the first frame update
+
     void Start()
     {
+        // each individual prefab is a child of the GameObject that this script is attached to
+        // a list of all children is made upon startup
         Transform[] allChildren = GetComponentsInChildren<Transform>(includeInactive: true);
         bool first = true;
         foreach (Transform child in allChildren)
@@ -30,13 +31,12 @@ public class ChangeShowing : MonoBehaviour
                 childObjects.Add(child.gameObject);
             }
         }
-        Debug.Log(allChildren.Length);
-        Debug.Log(childObjects.Count);
         childObjects[objIndex].SetActive(true);
     }
     
     public void nextObj()
     {
+        // method that changes the showing prefab to the next child, this is called when the user swipes right
         childObjects[objIndex].SetActive(false);
         if (objIndex == childObjects.Count - 1)
         {
@@ -51,6 +51,7 @@ public class ChangeShowing : MonoBehaviour
 
     public void prevObj()
     {
+        // method that changes the showing prefab to the previous child, this is called when the user swipes left
         childObjects[objIndex].SetActive(false);
         if (objIndex == 0)
         {
@@ -62,82 +63,4 @@ public class ChangeShowing : MonoBehaviour
         }
         childObjects[objIndex].SetActive(true);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        // childObjects[0].SetActive(false);
-        // if (SwipeDetector.swipeDetected)
-        // {
-        //     childObjects[objIndex].SetActive(false);
-        //     if (SwipeDetector.swipeDir == 2) // SWIPE LEFT
-        //     {
-        //         if (objIndex == 1)
-        //         {
-        //             objIndex = childObjects.Count - 1;
-        //         }
-        //         else
-        //         {
-        //             objIndex--;
-        //         }
-        //     }
-        //     else if (SwipeDetector.swipeDir == 1) // SWIPE RIGHT
-        //     {
-        //         if (objIndex == childObjects.Count - 1)
-        //         {
-        //             objIndex = 1;
-        //         }
-        //         else
-        //         {
-        //             objIndex++;
-        //         }
-        //     }
-        //     childObjects[objIndex].SetActive(true);
-        //     SwipeDetector.swipeDetected = false;
-        // }
-        // Debug.Log(Time.deltaTime);
-        // timer += Time.deltaTime;
-        // if (timer >= interval)
-        // {
-        //     childObjects[objIndex].SetActive(false);
-        //     if (objIndex == childObjects.Count - 1)
-        //     {
-        //         objIndex = 0;
-        //     }
-        //     else
-        //     {
-        //         objIndex++;
-        //     }
-        //     childObjects[objIndex].SetActive(true);
-        //     timer = 0;
-        // }   
-    }
-    
-    // private void SwipeDetector_OnSwipe(SwipeData data)
-    // {
-    //     Debug.Log("Swipe in Direction: " + data.Direction);
-    //     childObjects[objIndex].SetActive(false);
-    //     if (data.Direction == SwipeDirection.Left)
-    //     {
-    //         if (objIndex == 0)
-    //         {
-    //             objIndex = childObjects.Count - 1;
-    //         }
-    //         else
-    //         {
-    //             objIndex--;
-    //         }
-    //     }
-    //     else // SWIPE RIGHT
-    //     {
-    //         if (objIndex == childObjects.Count - 1)
-    //         {
-    //             objIndex = 0;
-    //         }
-    //         else
-    //         {
-    //             objIndex++;
-    //         }
-    //     }
-    //     childObjects[objIndex].SetActive(true);
-    // }
 }
